@@ -1,0 +1,91 @@
+/* @import url('color.css'); */
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header, footer {
+  background-color: var(--background-plus);
+}
+
+main {
+  background-color: var(--primary-minus);
+}
+
+input, button, select {
+  background-color: var(--background);
+  border-color: var(--foreground);
+  color: var(--text);
+  outline-color: var(--accent);
+  /* box-shadow:
+    0 1px 1px color-mix(in srgb, var(--background-minus-minus), transparent 20%),
+    0 2px 0 0 color-mix(in srgb, var(--foreground-plus-plus), transparent 20%);   */
+}
+
+button {
+  border-radius: 0.25em;
+}
+
+button:hover, button:focus {
+  cursor: pointer;
+  border-color: var(--foreground-plus);
+  background-color: var(--background-minus);
+}
+
+button:hover:focus {
+  border-color: var(--foreground-plus-plus);
+}
+
+button:active {
+  background-color: var(--background);
+}
+
+input:focus, select:focus {
+  border-color: var(--foreground-plus);
+}
+
+fieldset {
+  border-color: var(--primary-plus);
+  color: var(--primary-text);
+}
+
+legend {
+  font-weight: bold;
+}
+
+input:user-invalid {
+  outline: 2px solid var(--error);
+}
+
+/* Disable number spin button*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+kbd {
+  background-color: var(--background);
+  border-radius: 3px;
+  border: 1px solid var(--background-plus);
+  box-shadow:
+    0 1px 1px color-mix(in srgb, var(--background-minus-minus), transparent 20%),
+    0 2px 0 0 color-mix(in srgb, var(--foreground-plus-plus), transparent 20%);
+  color: var(--text);
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}

@@ -1,0 +1,46 @@
+.input-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-auto-flow: row;
+  align-items: center;
+}
+
+.input-grid .label {
+  grid-column: 1 / 2;
+  justify-self: right;
+  font-weight: bold;
+  user-select: all;
+}
+
+.input-grid .label::after {
+  content: ":";
+  user-select: none;
+}
+
+.input-grid .value {
+  grid-column: 2 / 3;
+}
+
+.input-grid .unit {
+  grid-column: 3 / 4;
+  justify-self: left;
+  user-select: none;
+}
+
+.input-grid button,
+.input-grid input[type="submit"] {
+  grid-column: 1 / 4;
+}
+
+.input-grid label.radio {
+  grid-column: 2 / 4;
+  justify-self: left;
+  font-weight: bold;
+  user-select: all;
+}
+
+.input-grid input[type="radio"],
+.input-grid input[type="checkbox"] {
+  grid-column: 1 / 2;
+  margin-block: 0;
+}

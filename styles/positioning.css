@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app > * {
+  padding-inline: 1em;
+}
+
+main, section {
+  margin: 2em;
+  padding: 2em;
+  gap: 1em;
+  /* flex-grow: 1; */
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+}
+
+form {
+  max-width: 50ch;
+}
+
+form > * + * {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+  /* gap: 1em; */
+  /* padding: 1em; */
+  margin-top: 1em;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+legend {
+  position: relative;
+}
+
+input, select {
+  padding: 0.25em;
+}
+
+button, input[type="submit"] {
+  padding: 0.5em;
+  width: 100%;
+}
+
+input[type="radio"] {
+  padding-inline: 0;
+}
+
+canvas {
+  flex-grow: 1;
+  align-self: stretch;
+  object-fit: contain;
+  max-height: 100%;
+  border-width: 1px;
+  margin: 1em;
+  padding: 0;
+}
+
+.input-grid {
+  column-gap: 0.25em;
+  row-gap: 0.5em;
+}
+
+.radio-group {
+  row-gap: 0.25em;
+}
