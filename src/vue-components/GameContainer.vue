@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import GameCanvas from './GameCanvas.vue'
-import { CanvasPlus } from '@/game-lib/canvas/CanvasPlus'
+import { CanvasPlus } from '@/game-lib/CanvasPlus'
 
 export default defineComponent({
     name: 'GameContainer',
@@ -16,7 +16,7 @@ export default defineComponent({
       }
     },
     mounted () {
-      const demo = new CanvasPlus(this.canvas)
+      const demo = new CanvasPlus(this.canvas)      
       demo.demo()
     },
 })

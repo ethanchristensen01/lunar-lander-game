@@ -11,11 +11,9 @@ export class CanvasPlus {
   
   constructor (public readonly canvas: HTMLCanvasElement) {
     this.context = canvas.getContext('2d')!
-    if (!this.context) {
-      throw new Error('Failed to get canvas context')
-    }
     this.keyboard = new KeyboardHandler(canvas)
     this.mouse = new MouseHandler(canvas)
+    canvas.focus()
   }
   
   get width (): number {
@@ -40,7 +38,6 @@ export class CanvasPlus {
       this.context.fill()
     }
     if (this.keyboard.isPressed('Space')) {
-      console.log('hi')
       this.context.fillStyle = 'white'
       this.context.fillRect(0, 0, this.width, this.height)
       this.context.fillStyle = 'black'

@@ -19,7 +19,6 @@ export class KeyboardHandler {
   }
   
   private addHandlers (element: HTMLElement) {
-    element.addEventListener('keydown', event => console.log(event))
     element.addEventListener('keydown', event => this.keyDownHandler(event))
     element.addEventListener('keyup', event => this.keyUpHandler(event))
   }
