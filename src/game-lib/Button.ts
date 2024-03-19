@@ -1,7 +1,6 @@
-import EventEmitter from "events"
 import type { CanvasPlus } from "./CanvasPlus"
 
-export class Button extends EventEmitter {
+export class Button {
   private hover = false
   
   public static readonly MOUSE_CLICK = 'mouse_hover'
@@ -19,17 +18,6 @@ export class Button extends EventEmitter {
     private y: number,
     public text: string
   ) {
-    super()
-  }
-  
-  on (eventName: typeof Button.MOUSE_CLICK, listener: () => void): this
-  override on (eventName: string, listener: (...payload: any[]) => void): this {
-    return super.on(eventName, listener)
-  }
-  
-  emit (eventName: typeof Button.MOUSE_CLICK): boolean
-  override emit (eventName: string, ...payload: any[]): boolean {
-    return super.emit(eventName, ...payload)
   }
   
   private getDimensions (canvas: CanvasPlus): {
@@ -72,7 +60,6 @@ export class Button extends EventEmitter {
     path.rect(dimensions.buttonX, dimensions.buttonY, dimensions.width, dimensions.height)
     this.hover = canvas.context.isPointInStroke(path, canvas.mouse.x, canvas.mouse.y)
     if (this.hover && canvas.mouse.pressed) {
-      this.emit(Button.MOUSE_CLICK)
       return true
     }
     return false
