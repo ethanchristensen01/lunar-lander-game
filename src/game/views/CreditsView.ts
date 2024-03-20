@@ -8,8 +8,9 @@ export class CreditsView implements GameState<StateEnum> {
   text: string[] = [
     'Programming: Ethan Christensen',
     'Ship Art: Ethan Christensen',
-    'Background Art: TODO FIXME',
-    'Music: Ethan Christensen'
+    'Background Art: Ethan Christensen',
+    'Music: Ethan Christensen',
+    'Sound Effects: Ethan Christensen'
   ]
   
   constructor (private canvas: CanvasPlus) {
@@ -32,7 +33,7 @@ export class CreditsView implements GameState<StateEnum> {
   render(_deltaTime: number): void {
     this.canvas.context.save()
     this.canvas.context.fillStyle = 'white'
-    this.canvas.context.font = '16pt serif'
+    this.canvas.context.font = '16pt sans-serif'
     this.canvas.context.textAlign = 'center'
     this.text.forEach((tx, i) => {
       this.canvas.context.fillText(tx, this.canvas.width / 2, 200 + i * 30)

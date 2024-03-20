@@ -72,24 +72,26 @@ export class Ship {
     this.vel.addMut(Ship.GRAVITY.scaleCopy(deltaTime * Ship.TIME_SCALE))
   }
   
-  handleInput (deltaTime: number, keyboard: KeyboardHandler): boolean {
-    let thrusting = false
+  handleInput (deltaTime: number, keyboard: KeyboardHandler): [boolean, boolean] {
+    const boosters: [boolean, boolean] = [false, false]
+    // if (keyboard.isPressed(inputKeys[KeyId.Down].key)) {
+    //   this.vel.addMut(Vec.polar(this.rot + Math.PI, Ship.THRUST).scaleMut(deltaTime * Ship.TIME_SCALE))
+    //   boosters[0] -= 1
+    //   boosters[1] -= 1
+    // }
     if (keyboard.isPressed(inputKeys[KeyId.Up].key)) {
       this.vel.addMut(Vec.polar(this.rot, Ship.THRUST).scaleMut(deltaTime * Ship.TIME_SCALE))
-      thrusting = true
-    }
-    if (keyboard.isPressed(inputKeys[KeyId.Down].key)) {
-      this.vel.addMut(Vec.polar(this.rot + Math.PI, Ship.THRUST).scaleMut(deltaTime * Ship.TIME_SCALE))
-      thrusting = true
+      boosters[0] = true
+      boosters[1] = true
     }
     if (keyboard.isPressed(inputKeys[KeyId.Left].key)) {
       this.rot -= Ship.ROT_VEL * deltaTime * Ship.TIME_SCALE
-      thrusting = true
+      boosters[0] = true
     }
     if (keyboard.isPressed(inputKeys[KeyId.Right].key)) {
       this.rot += Ship.ROT_VEL * deltaTime * Ship.TIME_SCALE
-      thrusting = true
+      boosters[1] = true
     }
-    return thrusting
+    return boosters
   }
 }

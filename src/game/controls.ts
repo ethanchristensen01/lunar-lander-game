@@ -1,6 +1,6 @@
 export enum KeyId {
   Up = 'key-up',
-  Down = 'key-down',
+  // Down = 'key-down',
   Left = 'key-left',
   Right = 'key-right'
 }
@@ -26,10 +26,10 @@ export const inputKeys: Record<KeyId, KeyInfo> = {
     id: KeyId.Right,
     name: 'Rotate CW ↻',
     key: 'ArrowRight'
-  },
-  [KeyId.Down]: {
-    id: KeyId.Down,
-    name: 'Ship Reverse ⇊',
-    key: 'ArrowDown'
   }
+  // [KeyId.Down]: {
+  //   id: KeyId.Down,
+  //   name: 'Ship Reverse ⇊',
+  //   key: 'ArrowDown'
+  // }
 }

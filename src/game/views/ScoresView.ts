@@ -20,7 +20,7 @@ export class ScoresView implements GameState<StateEnum> {
     } else {
       localStorage.setItem(ScoresView.storeKey, JSON.stringify([]))
     }
-    this.scores.sort((a, b) => a - b)
+    this.scores = this.scores.sort((a, b) => b - a).slice(0, 10)
   }
   
   async loadContent(): Promise<unknown> {
@@ -43,9 +43,9 @@ export class ScoresView implements GameState<StateEnum> {
     this.button.draw(this.canvas)
     this.canvas.context.save()
     this.canvas.context.fillStyle = 'white'
-    this.canvas.context.font = '16pt serif'
+    this.canvas.context.font = '16pt sans-serif'
     this.scores.forEach((score, i) => {
-      this.canvas.context.fillText(`${i + 1}. ${score}`, 100, 20 + i * 10, 100)
+      this.canvas.context.fillText(`${i + 1}:  ${score.toFixed(0)}`, 100, 40 + i * 30)
     })
     this.canvas.context.restore()
   }

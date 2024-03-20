@@ -29,7 +29,7 @@ export class Button {
     height: number
   } {
     canvas.context.textAlign = 'center'
-    canvas.context.font = '16pt serif'
+    canvas.context.font = '16pt sans-serif'
     const measure = canvas.context.measureText(this.text)
     const width = measure.width + 2 * Button.PADDING_X
     const height = measure.fontBoundingBoxAscent + measure.fontBoundingBoxDescent + 2 * Button.PADDING_Y

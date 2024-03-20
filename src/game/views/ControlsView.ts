@@ -40,6 +40,7 @@ export class ControlsView implements GameState<StateEnum> {
         localStorage.setItem(keyInfo.id, keyInfo.key)
       }
     })
+    this.canvas.mouse.pressed = false
     this.reading = undefined
   }
   async loadContent(): Promise<unknown> {
@@ -72,7 +73,7 @@ export class ControlsView implements GameState<StateEnum> {
   render(_deltaTime: number): void {
     this.canvas.context.save()
     this.canvas.context.fillStyle = 'white'
-    this.canvas.context.font = '16pt serif'
+    this.canvas.context.font = '16pt sans-serif'
     this.buttons.forEach(b => {
       b.button.draw(this.canvas, this.reading === b.keyInfo.id)
       this.canvas.context.fillText(this.reading === b.keyInfo.id ? '???' : b.keyInfo.key, 258, b.y + 24)
