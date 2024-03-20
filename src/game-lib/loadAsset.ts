@@ -1,4 +1,4 @@
-export async function loadImage (path: string) {
+export async function loadImage (path: string): Promise<HTMLImageElement> {
   const imgURL = new URL(path, import.meta.url).href
   const image = new Image()
   image.src = imgURL
@@ -8,11 +8,7 @@ export async function loadImage (path: string) {
   })
 }
 
-export async function loadAudio (path: string) {
+export function loadAudio (path: string): HTMLAudioElement {
   const audioURL = new URL(path, import.meta.url).href
-  const audio = new Audio(audioURL)
-  return new Promise((resolve, reject) => {
-    audio.onload = () => resolve(audio)
-    audio.onerror = (event) => reject(event)
-  })
+  return new Audio(audioURL)
 }

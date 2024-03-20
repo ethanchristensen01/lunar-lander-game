@@ -1,5 +1,5 @@
-import { KeyboardHandler } from "../input/KeyboardHandler"
-import { MouseHandler } from "../input/MouseHandler"
+import { KeyboardHandler } from "./input/KeyboardHandler"
+import { MouseHandler } from "./input/MouseHandler"
 
 /**
  * Canvas with keyboard controls and mouse movement

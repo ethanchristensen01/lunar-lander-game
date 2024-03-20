@@ -1,8 +1,8 @@
 export interface GameState<StateEnum> {
-  initialize(): Promise<unknown>
+  start(): void
   loadContent(): Promise<unknown>
   processInput(deltaTime: number): StateEnum
   update(deltaTime: number): void
   render(deltaTime: number): void
-  unload(): void
+  exit(): void
 }

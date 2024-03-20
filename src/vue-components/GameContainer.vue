@@ -6,6 +6,7 @@
 import { defineComponent } from 'vue'
 import GameCanvas from './GameCanvas.vue'
 import { CanvasPlus } from '@/game-lib/CanvasPlus'
+import { GameMain } from '@/game/game'
 
 export default defineComponent({
     name: 'GameContainer',
@@ -15,9 +16,11 @@ export default defineComponent({
         return (this.$refs.gameCanvas as InstanceType<typeof GameCanvas>).canvas
       }
     },
-    mounted () {
-      const demo = new CanvasPlus(this.canvas)      
-      demo.demo()
+    async mounted () {
+      const canvasPlus = new CanvasPlus(this.canvas)
+      const game = new GameMain(canvasPlus)
+      await game.loadContent()
+      game.loop(performance.now())
     },
 })
 </script>

@@ -1,30 +1,44 @@
 import { GameState } from "@/game-lib/GameState"
 import { StateEnum } from "./StateEnum"
 import { CanvasPlus } from "@/game-lib/CanvasPlus"
+import { Button } from "@/game-lib/Button"
 
 export class MenuView implements GameState<StateEnum> {
-  buttons = {}
+  buttons: Array<{button: Button, newState: StateEnum}>
   
-  constructor (private canvas: CanvasPlus) {}
+  constructor (private canvas: CanvasPlus) {
+    this.buttons = [
+      {
+        button: new Button(this.canvas.width / 2, 60, 'Play Game'),
+        newState: StateEnum.Play
+      },
+      {
+        button: new Button(this.canvas.width / 2, 110, 'Controls'),
+        newState: StateEnum.Controls
+      },
+      {
+        button: new Button(this.canvas.width / 2, 160, 'High Scores'),
+        newState: StateEnum.Scores
+      },
+      {
+        button: new Button(this.canvas.width / 2, 210, 'Credits'),
+        newState: StateEnum.Credits
+      }
+    ]
+  }
   
-  initialize(): Promise<unknown> {
-    throw new Error("Method not implemented.")
+  start() {}
+  async loadContent(): Promise<unknown> { return }
+  processInput(_deltaTime: number): StateEnum {
+    const pressed = this.buttons.filter(b => b.button.processInput(this.canvas))
+    if (pressed[0]) {
+      return pressed[0].newState
+    }
+    return StateEnum.Menu
   }
-  loadContent(): Promise<unknown> {
-    throw new Error("Method not implemented.")
+  update(_deltaTime: number): void {}
+  render(_deltaTime: number): void {
+    this.buttons.forEach(b => b.button.draw(this.canvas))
   }
-  processInput(deltaTime: number): StateEnum {
-    throw new Error("Method not implemented.")
-    this.canvas.mouse.pressed
-  }
-  update(deltaTime: number): void {
-    throw new Error("Method not implemented.")
-  }
-  render(deltaTime: number): void {
-    throw new Error("Method not implemented.")
-  }
-  unload(): void {
-    throw new Error("Method not implemented.")
-  }
-  
+  exit() {}
 }

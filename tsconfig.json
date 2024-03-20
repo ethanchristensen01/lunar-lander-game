@@ -22,7 +22,8 @@
     
     "paths": {
       "@/*": ["./src/*"],
-      "#/*": ["./styles/*"]
+      "#/*": ["./styles/*"],
+      "&/*": ["./assets/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],

@@ -1,4 +1,7 @@
 export enum StateEnum {
   Menu,
-  Play  
+  Play,
+  Controls,
+  Scores,
+  Credits
 }
