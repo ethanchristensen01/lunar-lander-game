@@ -5,7 +5,7 @@
         Lunar Lander
       </h1>
       <h2>
-        Assignment 3
+        Game Dev Assignment 3
       </h2>
     </hgroup>
   </header>
@@ -14,7 +14,7 @@
   </main>
   <footer>
     <p>Ethan Christensen</p>
-    <p>CS 5410 - Again!</p>
+    <p>USU 2024 - CS5410</p>
   </footer>
 </template>
 
