@@ -57,11 +57,11 @@ export class PlayView implements GameState<StateEnum> {
   }
   
   async loadContent(): Promise<unknown> {
-    this.shipImage = await loadImage('../../../assets/ship2.png')
-    this.song = loadAudio('../../../assets/song.wav')
-    this.thruster = loadAudio('../../../assets/thruster.wav')
-    this.success = loadAudio('../../../assets/success.wav')
-    this.explode = loadAudio('../../../assets/explode.wav')
+    this.shipImage = await loadImage(import.meta.resolve('../../../assets/ship2.png'))
+    this.song = loadAudio(import.meta.resolve('../../../assets/song.wav'))
+    this.thruster = loadAudio(import.meta.resolve('../../../assets/thruster.wav'))
+    this.success = loadAudio(import.meta.resolve('../../../assets/success.wav'))
+    this.explode = loadAudio(import.meta.resolve('../../../assets/explode.wav'))
     
     
     this.song.loop = true

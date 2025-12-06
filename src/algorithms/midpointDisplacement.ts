@@ -118,7 +118,7 @@ const ROUGHNESS = 1.45
 const safetyWidth = 70
 const splits = 7
 
-function midpointDisplacement (point: Point, diff: number, level: number = 1): Point {
+function midpointDisplacement (point: Point, diff: number): Point {
   return new Point(
     point.x,
     Math.abs(point.y + ROUGHNESS * randomNormal() * diff)

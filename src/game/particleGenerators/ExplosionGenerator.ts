@@ -10,7 +10,7 @@ export class ExplosionGenerator implements ParticleGenerator {
     public y: number
   ) {}
   
-  spawn(deltaTime: number): Array<Particle> {
+  spawn(): Array<Particle> {
     return Array.from(new Array(200), (_s, i) => {
       if (i % 2 === 0) {
         return this.makeFire()
