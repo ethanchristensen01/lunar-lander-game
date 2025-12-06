@@ -11,5 +11,6 @@ export default defineConfig({
       "#": path.resolve(__dirname, "./styles"),
       "&": path.resolve(__dirname, "./assets")
     }
-  }
+  },
+  assetsInclude: ["./assets/**/*"]
 })

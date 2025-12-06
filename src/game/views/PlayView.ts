@@ -9,6 +9,13 @@ import { ScoresView } from "./ScoresView"
 import { ParticleSystem } from "@/game-lib/Particles"
 import { ThrustGenerator } from "../particleGenerators/ThrustGenerator"
 import { ExplosionGenerator } from "../particleGenerators/ExplosionGenerator"
+
+import shipPngPath from "&/ship.png"
+import songWavPath from "&/song.wav"
+import thrusterWavPath from "&/thruster.wav"
+import successWavPath from "&/success.wav"
+import explodeWavPath from "&/explode.wav"
+
 export class PlayView implements GameState<StateEnum> {
   private line?: ReadyLine
   private shipImage?: HTMLImageElement
@@ -57,11 +64,11 @@ export class PlayView implements GameState<StateEnum> {
   }
   
   async loadContent(): Promise<unknown> {
-    this.shipImage = await loadImage(import.meta.resolve('../../../assets/ship2.png'))
-    this.song = loadAudio(import.meta.resolve('../../../assets/song.wav'))
-    this.thruster = loadAudio(import.meta.resolve('../../../assets/thruster.wav'))
-    this.success = loadAudio(import.meta.resolve('../../../assets/success.wav'))
-    this.explode = loadAudio(import.meta.resolve('../../../assets/explode.wav'))
+    this.shipImage = await loadImage(shipPngPath)
+    this.song = loadAudio(songWavPath)
+    this.thruster = loadAudio(thrusterWavPath)
+    this.success = loadAudio(successWavPath)
+    this.explode = loadAudio(explodeWavPath)
     
     
     this.song.loop = true

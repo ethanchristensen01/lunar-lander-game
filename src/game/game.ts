@@ -7,6 +7,9 @@ import { ControlsView } from "./views/ControlsView"
 import { ScoresView } from "./views/ScoresView"
 import { CreditsView } from "./views/CreditsView"
 import { loadImage } from "@/game-lib/loadAsset"
+
+import spacePngPath from "&/space.png"
+
 export class GameMain {
   states: Record<StateEnum, GameState<StateEnum>>
   currentStateKey: StateEnum
@@ -28,7 +31,7 @@ export class GameMain {
   }
   
   async loadContent () {
-    this.background = await loadImage('../../assets/space.png')
+    this.background = await loadImage(spacePngPath)
     return Promise.all(
       Object.values(this.states).map(state => state.loadContent())
     )
